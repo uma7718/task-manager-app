@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jkanban@1.3.1/dist/jkanban.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jkanban@1.3.1/dist/jkanban.min.js"></script>
+  <title>jkanban</title>
+</head>
+<body>
+  <div id="knban"></div>
+  <script>
+    const data = [
+      {id:'board-0', title:'タスク'},
+      {id:'board-1', title:'進行中'},
+      {id:'board-2', title:'完了'}
+    ];
+    new jKanban({
+      elemet: 'kanban',
+      boards: data
+    })
+  </script>
+</body>
+</html>
