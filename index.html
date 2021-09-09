@@ -9,14 +9,25 @@
   <div id="kanban"></div>
   <script>
     const data = [
-      {id:'board-0', title:'タスク'},
+      {id:'board-0', title:'タスク'}, //, item:[{id:'item-0', title:'サンプル'}]
       {id:'board-1', title:'進行中'},
       {id:'board-2', title:'完了'}
     ];
-    new jKanban({
+    const kanban = new jKanban({
       element: '#kanban',
-      boards: data
+      boards: data,
+      itemAddOptions: {
+        enabled: true,
+        content: '追加'
+      },
+
+      buttonClick: (element, id) => addTask(id)
     })
+    function addTask(id) {
+      const task = document.createElement('input');
+
+      kanban.addForm(id, task);
+    }
   </script>
 </body>
 </html>
