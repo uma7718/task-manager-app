@@ -6,7 +6,7 @@
   <title>jkanban</title>
 </head>
 <body>
-  <div id="knban"></div>
+  <div id="kanban"></div>
   <script>
     const data = [
       {id:'board-0', title:'タスク'},
@@ -14,7 +14,7 @@
       {id:'board-2', title:'完了'}
     ];
     new jKanban({
-      elemet: 'kanban',
+      element: '#kanban',
       boards: data
     })
   </script>
