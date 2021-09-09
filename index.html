@@ -23,6 +23,8 @@
         content: '追加'
       },
 
+      click: element => kanban.removeElement(element.dataset.eid),
+
       buttonClick: (element, id) => addTask(id)
     })
     function addTask(id) {
@@ -30,7 +32,7 @@
 
       kanban.addForm(id, task);
       task.focus();
-      
+
       task.addEventListener('blur', e => {
         kanban.addElement(id, {id:`item-${taskid++}`, title:e.target.value});
         task.remove();
