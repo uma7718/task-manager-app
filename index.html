@@ -13,6 +13,8 @@
       {id:'board-1', title:'進行中'},
       {id:'board-2', title:'完了'}
     ];
+    let taskid = 0;
+
     const kanban = new jKanban({
       element: '#kanban',
       boards: data,
@@ -27,6 +29,12 @@
       const task = document.createElement('input');
 
       kanban.addForm(id, task);
+      task.focus();
+      
+      task.addEventListener('blur', e => {
+        kanban.addElement(id, {id:`item-${taskid++}`, title:e.target.value});
+        task.remove();
+      })
     }
   </script>
 </body>
