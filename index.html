@@ -29,26 +29,39 @@
       {id:'board-2', title:'完了'}
     ];
     let taskid = 0;
-
+    let kanban;
+    
     document.forms.wrap.new.addEventListener('click', createKanban);
     document.forms.wrap.import.addEventListener('change', importFile);
     document.getElementById('download').addEventListener('click', downloadJSON);
 
+    function createKanban() {
+      kanban = new jKanban({
+        element: '#kanban',
+        boards: data,
+        itemAddOptions: {
+          enabled: true,
+          content: '追加'
+        },
 
-    
+        click: element => kanban.removeElement(element.dataset.eid),
+        buttonClick: (element, id) => addTask(id)
+      });
 
-    const kanban = new jKanban({
-      element: '#kanban',
-      boards: data,
-      itemAddOptions: {
-        enabled: true,
-        content: '追加'
-      },
+      document.forms.wrap.style.display = 'none';
+      document.getElementById('download').style.display = 'block';
+    }
 
-      click: element => kanban.removeElement(element.dataset.eid),
+    function importFile() {
 
-      buttonClick: (element, id) => addTask(id)
-    })
+    }
+
+    function downloadJSON() {
+
+    }
+
+
+
     function addTask(id) {
       const task = document.createElement('input');
 
