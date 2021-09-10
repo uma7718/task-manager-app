@@ -30,6 +30,13 @@
     ];
     let taskid = 0;
 
+    document.forms.wrap.new.addEventListener('click', createKanban);
+    document.forms.wrap.import.addEventListener('change', importFile);
+    document.getElementById('download').addEventListener('click', downloadJSON);
+
+
+    
+
     const kanban = new jKanban({
       element: '#kanban',
       boards: data,
