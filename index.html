@@ -63,7 +63,24 @@
     }
 
     function createDATA() {
-      
+      const jkanbanData = [];
+
+      for(let i=0; i<data.length; i++) {
+        const boardLists = {
+          id: data[i].id,
+          title: data[i].title,
+          item: []
+        }
+
+        kanban.getBoardElements(data[i].id).forEach(item => {
+          boardLists.item.push({
+            id: item.dataset.eid,
+            title: item.textContent
+          });
+        })
+        jkanbanData.push(boardLists);
+      }
+      return jkanbanData;
     }
 
     function addTask(id) {
