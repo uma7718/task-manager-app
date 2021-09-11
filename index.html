@@ -57,10 +57,14 @@
     }
 
     function downloadJSON() {
+      const blobData = new Blob([JSON.stringify(createDATA())],{type:'application/json'});
 
+      document.getElementById('download').href = window.URL.createObjectURL(blobData);
     }
 
-
+    function createDATA() {
+      
+    }
 
     function addTask(id) {
       const task = document.createElement('input');
